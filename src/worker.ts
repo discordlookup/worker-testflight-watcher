@@ -52,13 +52,13 @@ export default {
     ctx: ExecutionContext
   ): Promise<Response> {
     const currentState = (await env.TESTFLIGHT_STATE.get("STATE")) ?? "FULL";
-    const lastUpdate =
+    const lastChange =
       (await env.TESTFLIGHT_STATE.get("TIME")) ?? new Date(0).toISOString();
     return new Response(
       JSON.stringify({
 				url: env.TESTFLIGHT_URL,
-        state: currentState,
-        lastUpdate,
+        status: currentState,
+        changed_at: lastChange,
       }),
       {
         headers: {
