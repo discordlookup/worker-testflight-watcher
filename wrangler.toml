@@ -1,7 +1,17 @@
-name = "worker-testflight-watcher"
+name = "discordlookup-testflight-watcher"
 main = "src/worker.ts"
 compatibility_date = "2023-06-10"
 
+workers_dev = false
+route = { pattern = "testflight.workers.discordlookup.com", custom_domain = true, zone_name = "discordlookup.com" }
+
 kv_namespaces = [
-	{ binding = "TESTFLIGHT_STATE", id = "<KV_NAMESPACE_ID>" }
+	{ binding = "TESTFLIGHT_STATE", id = "02b29b6958844bc4841645dde262363a" }
 ]
+
+[vars]
+#DISCORD_WEBHOOK_URL = ""
+TESTFLIGHT_URL = "https://testflight.apple.com/join/gdE4pRzI"
+
+[triggers]
+crons = ["* * * * *"]
