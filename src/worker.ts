@@ -8,6 +8,9 @@ const seatsAvailableAgain = (env: Env) => ({
 			description: "New Discord TestFlight (Discord iOS Beta) seats available!",
 			color: 5763719,
 			timestamp: new Date().toISOString(),
+			footer: {
+				text: "DiscordLookup.com"
+			}
 		}
 	],
 	components: [
@@ -35,6 +38,9 @@ const seatsFull = (env: Env) => ({
 				"All Discord TestFlight (Discord iOS Beta) seats are taken again.",
 			color: 15548997,
 			timestamp: new Date().toISOString(),
+			footer: {
+				text: "DiscordLookup.com"
+			}
 		}
 	]
 });
