@@ -82,7 +82,7 @@ export default {
       : "OPEN";
     const currentState = await env.TESTFLIGHT_STATE.get("STATE");
 
-    if (newState !== currentState) {
+    if (newState !== currentState && result.ok) {
       await env.TESTFLIGHT_STATE.put("STATE", newState);
       await env.TESTFLIGHT_STATE.put("TIME", new Date().toISOString());
       if (env.DISCORD_WEBHOOK_URL)
