@@ -91,7 +91,7 @@ export default {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
-            "User-Agent": "DiscordLookup (https://discordlookup.com/, 1.0)",
+            "User-Agent": "DiscordBot (https://discordlookup.com/, 1.0)",
           },
           body: JSON.stringify(
             newState === "FULL" ? seatsFull(env) : seatsAvailableAgain(env)
