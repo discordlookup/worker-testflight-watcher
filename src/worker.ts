@@ -72,6 +72,7 @@ export default {
     const result = await fetch(env.TESTFLIGHT_URL, {
       headers: {
         "Accept-Language": "en-us",
+        "User-Agent": "Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/114.0.0.0 Safari/537.36",
       },
     });
 
@@ -90,6 +91,7 @@ export default {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
+            "User-Agent": "DiscordLookup (https://discordlookup.com/, 1.0)",
           },
           body: JSON.stringify(
             newState === "FULL" ? seatsFull(env) : seatsAvailableAgain(env)
