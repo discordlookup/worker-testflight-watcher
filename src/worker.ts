@@ -34,8 +34,7 @@ const seatsFull = (env: Env) => ({
 			title: "Discord TestFlight",
 			url: env.TESTFLIGHT_URL,
 			type: "rich",
-			description:
-				"All Discord TestFlight (Discord iOS Beta) seats are taken again.",
+			description: "All Discord TestFlight (Discord iOS Beta) seats are taken again.",
 			color: 15548997,
 			timestamp: new Date().toISOString(),
 			footer: {
@@ -52,8 +51,7 @@ export default {
     ctx: ExecutionContext
   ): Promise<Response> {
     const currentState = (await env.TESTFLIGHT_STATE.get("STATE")) ?? "FULL";
-    const lastChange =
-      (await env.TESTFLIGHT_STATE.get("TIME")) ?? new Date(0).toISOString();
+    const lastChange = (await env.TESTFLIGHT_STATE.get("TIME")) ?? new Date(0).toISOString();
     return new Response(
       JSON.stringify({
 				url: env.TESTFLIGHT_URL,
@@ -87,7 +85,7 @@ export default {
       await env.TESTFLIGHT_STATE.put("STATE", newState);
       await env.TESTFLIGHT_STATE.put("TIME", new Date().toISOString());
       if (env.DISCORD_WEBHOOK_URL)
-        fetch(env.DISCORD_WEBHOOK_URL, {
+        await fetch(env.DISCORD_WEBHOOK_URL, {
           method: "POST",
           headers: {
             "Content-Type": "application/json",
